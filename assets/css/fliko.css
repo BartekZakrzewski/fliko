@@ -79,7 +79,7 @@
 .targ{
     background-color: #fff;
     color: #000;
-    padding: .2rem .5rem .2rem .5rem;
+    padding: 0 .2rem;
     margin: 0 .5rem 0 .5rem;
     border: 2px solid #000;
     border-radius: 1rem;
@@ -104,9 +104,18 @@
     border-top: 1px solid rgba(0, 0, 0, 0.199);
 }   
 
+.feat{
+    padding: .5rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.199);
+    border-top: 1px solid rgba(0, 0, 0, 0.199);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 500;
+}
+
 .feat-title{
     margin: 0;
-    height: 100%;
     width: 100%;
     padding: .5rem;
     display: flex;
@@ -120,15 +129,6 @@
     height: 200%;
 }
 
-.feat{
-    padding: .5rem;
-    border-right: 1px solid rgba(0, 0, 0, 0.199);
-    border-top: 1px solid rgba(0, 0, 0, 0.199);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-weight: 500;
-}
 
 #blok-one-title{
     background-image: url(/assets/img/FLIKO-bg-1.jpeg);
@@ -187,9 +187,33 @@ header{
     margin: 0;
 }
 
+.sub-menu{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    transform: translateX(100%);
+    -webkit-transition: transform 200ms ease;
+    -moz-transition: transform 200ms ease;
+    -o-transition: transform 200ms ease;
+    transition: transform 200ms ease;
+}
+    .sub-menu > li{
+        width: 100%;
+    }
+    .sub-menu:hover{
+        transform: translateX(0);
+    }
+    #sol:hover + .sub-menu{
+        transform: translateX(0);
+    }
+
 .wid-blok{
     width: 100%;
     min-height: 100%;
+    position: static;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -198,25 +222,68 @@ header{
     border: 1px solid #000;
     padding: 1rem;
     background-color: #3A48C5;
-    transition: 200ms ease;
+    transition: filter 200ms ease;
     cursor: pointer;
 }
     .wid-blok:hover{
-        background-color: #232B76;
+        filter: brightness(1.2);
     }
 
 .wid-title{
     font-size: 1.2rem;
     color: #000;
     text-decoration: none;
+    transition: color 200ms ease;
 }
+    .wid-title:hover{
+        color: rgb(37, 37, 48);
+    }
 
 .wid-built{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: center;
     align-items: center;
 }
 
 #sol{
     transition: display 200ms ease;
+}
+
+.short-blocks{
+    display: none
+}
+
+@media screen and (max-width: 992px) {
+    .sub-menu{
+        display: none;
+    }
+    .short-blocks{
+        display: flex;
+    }
+    .short-title{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff9;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .fliko-section{
+        flex-direction: column;
+    }
+    .feat-title{
+        border-right: 1px solid rgba(0, 0, 0, 0.199);
+    }
+}
+
+@media screen and (max-width: 1370px) {
+    .ts-svg{
+        background-size: unset;
+    }
 }
